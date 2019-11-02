@@ -5,12 +5,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-    # if @user.save # Returns truthy value on success
-    #   session[:user_id] = @user.id
-    #   redirect_to root_path
-    # else
-    #   render :new
-    # end
+    if @user.save # Returns truthy value on success
+      flash[:notice] = 'User was successfully created.'
+      session[:user_id] = @user.id
+      redirect_to root_path # change to contacts path later
+    else
+      flash.now[:error] = 'Could not create user.'
+      render :new
+    end
   end
 
   private
