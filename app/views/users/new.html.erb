@@ -1,0 +1,30 @@
+<!-- Logo of App -->
+
+<h1>Create your Account</h1>
+
+<% if @user.errors.any? %>
+  <ol>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ol>
+<% end %>
+
+<%= form_for @user do |f| %>
+  <%= f.label :name, "Full Name" %>
+  <%= f.text_field :name, :required => true, :autofocus => true, :placeholder => "Your Name" %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, :required => true, :placeholder => "Email Address" %>
+
+  <%= f.label :is_female, "Gender" %>
+  <%= f.select :is_female, User::GENDER_TYPES %>
+
+  <%= f.label :password, "Choose a Password" %>
+  <%= f.password_field :password, :placeholder => "Password" %>
+
+  <%= f.label :password_confirmation, "Verify Password" %>
+  <%= f.password_field :password_confirmation, :placeholder => "Confirm" %>
+
+  <%= f.submit "Sign up" %>
+<% end %>
