@@ -1,2 +1,13 @@
-<h1>Contacts#index</h1>
-<p>Find me in app/views/contacts/index.html.erb</p>
+<h1>Contacts List</h1>
+<% @contacts.each do |contact| %>
+  <%= image_tag contact.photo, :class => 'img-circle' if contact.photo.present? %>
+  <ul>
+    <li>Name: <%= link_to contact.name, contact %></li>
+    <li>Phone: <%= number_to_phone contact.phone, :area_code => true %></li>
+    <li>Email: <%= contact.email %></li>
+  </ul>
+  <div class="controls">
+    <%= link_to "Edit", edit_contact_path(contact) %>
+    <%= link_to "Delete", contact, :method => 'delete', :data => { :confirm => "Are you sure?"} %>
+  </div>
+<% end %>

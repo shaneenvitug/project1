@@ -7,7 +7,7 @@ class SessionController < ApplicationController
     user = User.find_by :email => params[:email]
     if user.present? && user.authenticate(params[:password])
       session[:user_id] = user.id # Remember the user id from this moment on
-      redirect_to root_path # Change this to contacts_path later
+      redirect_to contacts_path
     else
       flash[:error] = "Invalid email address or password"
       redirect_to login_path # we don't render on failure bacause we don't want to help a hacker

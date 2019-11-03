@@ -1,2 +1,20 @@
-<h1>Contacts#show</h1>
-<p>Find me in app/views/contacts/show.html.erb</p>
+<div>
+  <div>
+    <%= image_tag @contact.photo, :class => 'img-circle' if @contact.photo.present?%>
+
+    <h2><%= @contact.name %></h2>
+  </div>
+
+  <div>
+  <%# <%= link_to "Favourite" %> %>
+    <%= link_to "Edit", edit %>
+  </div>
+</div>
+
+<h3>Contact details</h3>
+<ul>
+  <li>Email: <%= @contact.email %></li>
+  <li>Phone: <%= @contact.phone %></li>
+  <li>Address: <%= @contact.address if @contact.address.present? %></li>
+  <li>Company: <%= @contact.company if @contact.company.present? %></li>
+</ul>
