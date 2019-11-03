@@ -1,3 +1,5 @@
+<%= link_to '+', new_contact_path %>
+
 <h1>Contacts List</h1>
 <% @contacts.each do |contact| %>
   <%= image_tag contact.photo, :class => 'img-circle' if contact.photo.present? %>

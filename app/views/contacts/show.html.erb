@@ -6,8 +6,8 @@
   </div>
 
   <div>
-  <%# <%= link_to "Favourite" %> %>
-    <%= link_to "Edit", edit %>
+    <%= link_to "Edit", edit_contact_path(@contact) %>
+    <%= link_to "Delete", @contact, :method => 'delete', :data => { :confirm => "Are you sure?" } %>
   </div>
 </div>
 
