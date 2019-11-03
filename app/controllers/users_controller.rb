@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.save # Returns truthy value on success
       flash[:notice] = 'User was successfully created.'
       session[:user_id] = @user.id
-      redirect_to root_path # change to contacts path later
+      redirect_to contacts_path
     else
       flash.now[:error] = 'Could not create user.'
       render :new

@@ -20,6 +20,9 @@
   <%= f.label :is_female, "Gender" %>
   <%= f.select :is_female, User::GENDER_TYPES %>
 
+  <%= f.label :dob, "Date of Birth" %>
+  <%= f.date_field :dob %>
+
   <%= f.label :password, "Choose a Password" %>
   <%= f.password_field :password, :placeholder => "Password" %>
 
