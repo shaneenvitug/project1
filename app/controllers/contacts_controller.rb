@@ -10,7 +10,12 @@ class ContactsController < ApplicationController
   def create
     contact = Contact.create contact_params
     @current_user.contacts << contact
-    redirect_to contact
+    if contact.save
+      flash[:success] = "Successfully created new contact"
+      redirect_to contacts_path
+    else
+      render :new
+    end
   end
 
   def edit
