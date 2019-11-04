@@ -10,12 +10,11 @@
   </head>
 
   <body>
-  <nav>
-    <%= link_to "My Contacts App", root_path %>
-    <% if @current_user.present? %>
-      <%= link_to "Welcome #{@current_user.name}", login_path, :method => 'delete' %>
-    <% end %>
-  </nav>
+    <nav>
+      <% if @current_user.present? %>
+        <%= link_to "Welcome #{@current_user.name}", login_path, :method => 'delete' %>
+      <% end %>
+    </nav>
     <%= yield %>
   </body>
 </html>

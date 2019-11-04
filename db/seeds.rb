@@ -26,3 +26,5 @@ u1.contacts << c1 << c2 << c3
 puts "Contacts and Groups"
 g1.contacts << c1 << c2
 g4.contacts << c3
+
+# Favourite.contacts << c1
