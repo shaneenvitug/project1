@@ -1,33 +1,57 @@
-<!-- Logo of App -->
-
-<h1>Create your My Contacts App Account</h1>
-
-<% if @user.errors.any? %>
-  <ol>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+<!-- Image logo and app name -->
+  <nav class="navbar navbar-light bg-light">
+    <%= link_to (image_tag("logo.png", :class => "d-inline-block align-top", :width => "34", :height => "34") + "RECONNECT"), root_path, :class => "navbar-brand" %>
+  </nav>
+<!-- Sign up form -->
+  <p class="h5 mb-4 text-center">
+    Create your free Reconnect account
+  </p>
+  <div class="signup-form">
+    <% if @user.errors.any? %>
+      <ol>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ol>
     <% end %>
-  </ol>
-<% end %>
 
-<%= form_for @user do |f| %>
-  <%= f.label :name, "Full Name" %>
-  <%= f.text_field :name, :required => true, :autofocus => true, :placeholder => "Your Name" %>
+    <%= form_for @user, class: 'border border-light p-5' do |f| %>
 
-  <%= f.label :email %>
-  <%= f.email_field :email, :required => true, :placeholder => "Email Address" %>
+      <!-- Name -->
+      <%= f.label :name %>
+      <%= f.text_field :name, :required => true, :autofocus => true, :placeholder => "Full Name", :class => "form-control mb-4" %>
 
-  <%= f.label :is_female, "Gender" %>
-  <%= f.select :is_female, User::GENDER_TYPES %>
+      <!-- Email -->
+      <%= f.label :email %>
+      <%= f.email_field :email, :required => true, :placeholder => "email@johndoe.com", :class => "form-control mb-4" %>
 
-  <%= f.label :dob, "Date of Birth" %>
-  <%= f.date_field :dob %>
+      <!-- Not sure if I will add Gender and DOB in sign up form
+      <%= f.label :is_female, "Gender" %>
+      <div class="form-check form-check-inline">
+        <%= f.radio_button :is_female, "Male", :class => "form-check-input", :type => "radio" %>
+        <%= f.label :is_female, "Male", :class => "form-check-label" %>
+        <%= f.radio_button :is_female, "Female", :class => "form-check-input", :type => "radio" %>
+        <%= f.label :is_female, "Female", :class => "form-check-label" %>
+      </div><br>
 
-  <%= f.label :password, "Choose a Password" %>
-  <%= f.password_field :password, :placeholder => "Password" %>
+      <%= f.label :dob, "Date of Birth" %>
+      <%= f.date_field :dob, :class => "form-control mb-4" %> -->
 
-  <%= f.label :password_confirmation, "Verify Password" %>
-  <%= f.password_field :password_confirmation, :placeholder => "Confirm" %>
+      <!-- Password -->
+      <%= f.label :password, "Choose a Password" %>
+      <%= f.password_field :password, :placeholder => "Password", :class => "form-control mb-4" %>
 
-  <%= f.submit "Sign up" %>
-<% end %>
+      <!-- Confirm Password -->
+      <%= f.label :password_confirmation, "Verify Password" %>
+      <%= f.password_field :password_confirmation, :placeholder => "Confirm", :class => "form-control mb-4" %>
+
+      <!-- Sign Up button -->
+      <%= f.submit "Sign up for free", :class => "btn btn-info btn-block my-4" %>
+
+      <!-- Login -->
+      <p class="text-center">
+        Already have an account?
+        <%= link_to "Log In", login_path %>
+      </p>
+    <% end %>
+  </div>

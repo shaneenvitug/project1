@@ -1,15 +1,28 @@
-<h1>Login</h1>
+<!-- Image logo and app name -->
+  <nav class="navbar navbar-light bg-light">
+    <%= link_to (image_tag("logo.png", :class => "d-inline-block align-top", :width => "34", :height => "34") + "RECONNECT"), root_path, :class => "navbar-brand" %>
+  </nav>
+<!-- Login form -->
+  <div class="login-form">
 
-<% if flash[:error].present? %>
-  <p><%= flash[:error] %></p>
-<% end %>
+    <%= form_tag login_path, class: 'border border-light p-5' do %>
+      <p class="h4 mb-4 text-center">Log In</p>
 
-<%= form_tag login_path do %>
-  <%= label_tag :email %>
-  <%= email_field_tag :email %>
+      <!-- Email -->
+      <%= label_tag :email %>
+      <%= email_field_tag :email, nil, :class => "form-control mb-4", :placeholder => 'email@johndoe.com' %>
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
+      <!-- Password -->
+      <%= label_tag :password %>
+      <%= password_field_tag :password, nil, :class => "form-control mb-4", :placeholder => 'Password' %>
 
-  <%= submit_tag "Sign in"%>
-<% end %>
+      <!-- Login button -->
+      <%= submit_tag "Log In", :class => "btn btn-info btn-block my-4" %>
+
+      <!-- Sign Up -->
+      <p class="text-center">
+        Don't have an account?
+        <%= link_to "Sign Up", new_user_path %>
+      </p>
+    <% end %>
+  </div>

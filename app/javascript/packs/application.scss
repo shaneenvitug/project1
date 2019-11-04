@@ -1,0 +1,17 @@
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:500&display=swap');
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  color: black;
+}
+
+.login-form, .signup-form {
+  max-width: 370px;
+  margin: 0 auto;
+}
