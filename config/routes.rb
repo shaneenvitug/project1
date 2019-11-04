@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root :to => 'pages#home'
+  root :to => 'contacts#index'
 
   # resources is only for CRUD operations
   resources :users, :only => [:new, :create] # same as - :except => [:destroy]

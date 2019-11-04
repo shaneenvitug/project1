@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if @user.save # Returns truthy value on success
       flash[:notice] = 'User was successfully created.'
       session[:user_id] = @user.id
-      redirect_to contacts_path
+      redirect_to root_path
     else
       flash.now[:error] = 'Could not create user.'
       render :new
@@ -17,6 +17,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :is_female, :dob, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end
