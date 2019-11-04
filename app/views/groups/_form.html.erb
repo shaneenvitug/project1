@@ -1,0 +1,7 @@
+<%= form_for @group do |f| %>
+  <%= f.label :name, 'Group Name' %>
+  <%= f.text_field :name, :required => true, :autofocus => true, :placeholder => 'Group Name' %>
+
+  <%= link_to 'Cancel', contacts_path %>
+  <%= f.submit %>
+<% end %>

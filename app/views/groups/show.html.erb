@@ -1,0 +1,13 @@
+<h3><%= @group.name %></h3>
+<div>
+  <%= link_to "Edit", edit_group_path(@group) %>
+  <%= link_to "Delete", @group, :method => 'delete', :data => { :confirm => "Are you sure?" } %>
+</div>
+
+<% @group.contacts.each do |contact| %>
+  <ul>
+    <li>
+      <%= link_to contact.name, contact %>
+    </li>
+  </ul>
+<% end %>
