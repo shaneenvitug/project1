@@ -22,6 +22,7 @@ class ContactsController < ApplicationController
 
   def edit
     @contact = Contact.find params[:id]
+    @groups = Group.all
   end
 
   def update
@@ -32,6 +33,7 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find params[:id]
+    @groups = Group.all
   end
 
   def destroy
