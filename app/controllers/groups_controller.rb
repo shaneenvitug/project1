@@ -1,13 +1,14 @@
 class GroupsController < ApplicationController
   def new
     @group = Group.new
+    @groups = Group.all
   end
 
   def create
     group = Group.create group_params
     if group.save
       flash[:success] = "Successfully created new group"
-      redirect_to groups_path
+      redirect_to contacts_path
     else
       render :new
     end

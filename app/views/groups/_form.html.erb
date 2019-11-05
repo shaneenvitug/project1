@@ -1,7 +1,18 @@
 <%= form_for @group do |f| %>
-  <%= f.label :name, 'Group Name' %>
-  <%= f.text_field :name, :required => true, :autofocus => true, :placeholder => 'Group Name' %>
-
-  <%= link_to 'Cancel', contacts_path %>
-  <%= f.submit %>
+  <div class="form-group row">
+    <%= f.label :name, 'Group Name', :class => "col-sm-3 col-form-label" %>
+    <div class="col-sm-9">
+      <%= f.text_field :name, :required => true, :autofocus => true, :placeholder => 'Insert Group Name', :class => "form-control" %>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-9">
+    </div>
+  </div>
+  <div class="form-group row text-right">
+    <div class="col-sm">
+      <%= f.submit "Save", :class => "btn btn-info"  %>
+      <%= link_to "Cancel", contacts_path, :class => "btn btn-default" %>
+    </div>
+  </div>
 <% end %>
