@@ -75,6 +75,13 @@
   `      <table class="table">
           <!-- add/change plus/add icon to create a contact when font awesome works <i class="glyphicon glyphicon-plus"></i>-->
           <%= link_to "Add Contact", new_contact_path, :class => 'btn btn-info' %>
+          <div class="container">
+            <% if flash[:success].present? %>
+              <p class="alert alert-success p-2 text-center"><%= flash[:success] %></p>
+            <% elsif flash[:notice].present? %>
+              <p class="alert alert-info p-2 text-center"><%= flash[:notice] %></p>
+            <% end %>
+          </div>
           <% @contacts.each do |contact| %>
             <tr>
               <td class="middle">

@@ -8,11 +8,9 @@
   </p>
   <div class="signup-form">
     <% if @user.errors.any? %>
-      <ol>
         <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+          <p class="alert alert-danger text-center"><%= msg %></p>
         <% end %>
-      </ol>
     <% end %>
 
     <%= form_for @user, class: 'border border-light p-5' do |f| %>

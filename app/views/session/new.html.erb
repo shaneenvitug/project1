@@ -8,6 +8,10 @@
     <%= form_tag login_path, class: 'border border-light p-5' do %>
       <p class="h4 mb-4 text-center">Log In</p>
 
+      <% if flash[:error].present? %>
+        <p class="alert alert-danger p-2 text-center"><%= flash[:error] %></p>
+      <% end %>
+
       <!-- Email -->
       <%= label_tag :email %>
       <%= email_field_tag :email, nil, :class => "form-control mb-4", :placeholder => 'email@johndoe.com' %>
