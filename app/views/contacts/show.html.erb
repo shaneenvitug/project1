@@ -20,7 +20,15 @@
     <div class="col-md-3">
       <div class="list-group">
         <!-- add a plus/add icon to create a group -->
-        <%= link_to "Groups", groups_path, :class => "list-group-item list-group-item-info" %>
+        <div class="btn-group dropright">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Groups
+          </button>
+          <div class="dropdown-menu">
+            <%= link_to "Create new group", new_group_path, :class => "dropdown-item" %>
+            <%= link_to "Add new contact", new_contact_path, :class => "dropdown-item" %>
+          </div>
+        </div>
         <% @groups.each do |group| %>
           <%= link_to group.name, group, :class => "list-group-item" %>
         <% end %>
@@ -29,8 +37,8 @@
     </div>
 
     <div class="col-md-9 shadow p-3 mb-5 bg-white rounded">
-      <div class="top-heading">
-        <div class="row">
+      <div class="contacts-show">
+        <div class="row top-heading">
           <div class="col">
             <%= image_tag @contact.photo, :class => 'img-circle' if @contact.photo.present?%>
             <h2><%= @contact.name %></h2>
