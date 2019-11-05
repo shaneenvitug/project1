@@ -6,6 +6,7 @@ class ContactsController < ApplicationController
 
   def new
     @contact = Contact.new
+    @groups = Group.all
   end
 
   def create
