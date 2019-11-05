@@ -65,10 +65,9 @@
       <div class="col-md-9">
         <div class="panel panel-default">
   `      <table class="table">
+          <!-- add/change plus/add icon to create a contact when font awesome works <i class="glyphicon glyphicon-plus"></i>-->
           <%= link_to "Add Contact", new_contact_path, :class => 'btn btn-info' %>
           <% @contacts.each do |contact| %>
-
-          <!-- add a plus/add icon to create a contact when font awesome works <i class="glyphicon glyphicon-plus"></i>-->
             <tr>
               <td class="middle">
                 <div class="media">
@@ -79,46 +78,44 @@
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading"><%= link_to contact.name, contact %></h4>
-                    <address>
-                      <strong><%= contact.email %></strong><br>
-                      <%= contact.phone %>
-                    </address>
+                      <address>
+                        <strong><%= contact.email %></strong><br>
+                        <%= contact.phone %>
+                      </address>
                   </div>
                 </div>
               </td>
               <td width="100" class="middle">
                 <div>
                   <!-- change to an icon later when font awesome works <i class="glyphicon glyphicon-edit"></i> <i class="glyphicon glyphicon-remove"></i> -->
-                  <!-- NOT WORKING!!! -->
-                  <a href="#">Edit</a>
-                  <a href="#">Delete</a>
+                  <%= link_to "Edit", :class => "btn btn-info active" %>
+                  <%= button_to "Delete", :class => "btn btn-danger", :data => { :confirm => "Are you sure?"} %>
                 </div>
               </td>
             </tr>
-
           <% end %>
-        </table>
-      </div
+          </table>
+        </div
 
-      <div class="text-center">
-        <nav>
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+        <div class="text-center">
+          <nav>
+            <ul class="pagination">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   </div>
