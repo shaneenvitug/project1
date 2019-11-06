@@ -51,37 +51,39 @@
             <%= link_to "x", contacts_path %>
           </div>
         </div>
-        <p><strong>Contact Details</strong></p>
-        <div class="row">
-          <div class="col-4">
-            icon mail
+        <p class="p-2"><strong>Contact Details</strong></p>
+        <div class="icon-details p-2">
+          <div class="row mb-4">
+            <div class="col-1">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="col-11">
+              <%= @contact.email %>
+            </div>
           </div>
-          <div class="col-8">
-            <%= @contact.email %>
+          <div class="row mb-4">
+            <div class="col-1">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div class="col-11">
+              <%= @contact.phone %>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            icon phone
+          <div class="row mb-4">
+            <div class="col-1">
+              <i class="fas fa-house-damage"></i>
+            </div>
+            <div class="col-11">
+              <%= @contact.address if @contact.address.present?%>
+            </div>
           </div>
-          <div class="col-8">
-            <%= @contact.phone %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            icon home
-          </div>
-          <div class="col-8">
-            <%= @contact.address if @contact.address.present?%>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            icon bldg
-          </div>
-          <div class="col-8">
-            <%= @contact.company if @contact.company.present?%>
+          <div class="row">
+            <div class="col-1">
+              <i class="fas fa-building"></i>
+            </div>
+            <div class="col-11">
+              <%= @contact.company if @contact.company.present?%>
+            </div>
           </div>
         </div>
       </div>
