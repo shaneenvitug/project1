@@ -18,6 +18,7 @@ class ContactsController < ApplicationController
     else
       render :new
     end
+    @contact.groups = Group.find(@params[group_ids]) if @params[group_ids]
   end
 
   def edit
@@ -29,6 +30,7 @@ class ContactsController < ApplicationController
     contact = Contact.find params[:id]
     contact.update contact_params
     redirect_to contact
+    @contact.groups = Group.find(@params[group_ids]) if @params[group_ids]
   end
 
   def show
