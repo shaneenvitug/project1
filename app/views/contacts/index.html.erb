@@ -53,7 +53,6 @@
       <! -- Groups and Favourites -->
       <div class="col-md-3">
         <div class="list-group">
-          <!-- add a plus/add icon to create a group -->
           <div class="btn-group dropright">
             <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Groups
@@ -68,6 +67,14 @@
           <% end %>
         </div>
         <!-- to add favourites later -->
+        <!-- <div class="list-group">
+          Favourites
+          < @favourite.contacts.each do |contact| %>
+            <li class="list-inline-item">
+              <%= link_to contact.name, contact %>
+            </li>
+          < end %>
+        </div> -->
       </div>
       <! -- Contacts List -->
       <div class="col-md-9">

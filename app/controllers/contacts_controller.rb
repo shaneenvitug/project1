@@ -2,6 +2,7 @@ class ContactsController < ApplicationController
   def index
     @contacts = Contact.all
     @groups = Group.all
+    # @favourite = Favourite.find params [:id]
   end
 
   def new

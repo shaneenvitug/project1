@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'favourites/show'
   root :to => 'contacts#index'
 
   # resources is only for CRUD operations
