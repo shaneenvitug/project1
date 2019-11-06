@@ -16,6 +16,7 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find params[:id]
+    @groups = Group.all
   end
 
   def update
@@ -26,6 +27,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find params[:id]
+    @groups = Group.all
   end
 
   def destroy

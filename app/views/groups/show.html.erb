@@ -1,13 +1,82 @@
-<h3><%= @group.name %></h3>
-<div>
-  <%= link_to "Edit", edit_group_path(@group) %>
-  <%= link_to "Delete", @group, :method => 'delete', :data => { :confirm => "Are you sure?" } %>
-</div>
+<nav class="navbar navbar-light bg-light navbar-fixed-top">
+  <%= link_to (image_tag("logo.png", :class => "d-inline-block align-top", :width => "34", :height => "34") + "RECONNECT"), root_path, :class => "navbar-brand" %>
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Welcome,  <%= @current_user.name %>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "Logout", login_path, :method => "delete", :class => "dropdown-item" %>
+        </div>
+      </li>
+    </ul>
+</nav>
 
-<% @group.contacts.each do |contact| %>
-  <ul>
-    <li>
-      <%= link_to contact.name, contact %>
-    </li>
-  </ul>
-<% end %>
+
+
+<div class="container">
+  <div class="row">
+    <! -- Groups and Favourites -->
+    <div class="col-md-3">
+      <div class="list-group">
+        <!-- add a plus/add icon to create a group -->
+        <div class="btn-group dropright">
+          <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Groups
+          </button>
+          <div class="dropdown-menu">
+            <%= link_to "Create new group", new_group_path, :class => "dropdown-item" %>
+            <%= link_to "Add new contact", new_contact_path, :class => "dropdown-item" %>
+          </div>
+        </div>
+        <% @groups.each do |group| %>
+          <%= link_to group.name, group, :class => "list-group-item" %>
+        <% end %>
+      </div>
+      <!-- to add favourites later -->
+    </div>
+
+    <div class="col-md-9 shadow p-3 mb-5 bg-white rounded">
+      <div class="panel panel-default">
+        <div class="row top-heading">
+          <div class="col">
+            <h2><%= @group.name %></h2>
+          </div>
+          <div class="col-md-auto">
+          </div>
+          <div class="col col-lg-3">
+            <%= link_to "Edit", edit_group_path(@group) %>
+            <%= link_to "Delete", @group, :method => 'delete', :data => { :confirm => "Are you sure?" } %>
+            <%= link_to "x", contacts_path %>
+          </div>
+        </div>
+      <table class="table">
+        <% @group.contacts.each do |contact| %>
+        <tr>
+          <td class="middle">
+            <div class="media">
+              <div class="media-left">
+                <a href="#">
+                  <img src="https://www.fillmurray.com/100/100" alt="">
+                </a>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading"><%= link_to contact.name, contact %></h4>
+                  <address>
+                    <strong><%= contact.email %></strong><br>
+                    <%= contact.phone %>
+                  </address>
+              </div>
+            </div>
+          </td>
+          <td width="100" class="middle">
+            <div>
+              <!-- change to an icon later when font awesome works <i class="glyphicon glyphicon-edit"></i> <i class="glyphicon glyphicon-remove"></i> -->
+              <%= link_to "Edit", :class => "btn btn-info active" %>
+              <%= button_to "Delete", :class => "btn btn-danger", :data => { :confirm => "Are you sure?"} %>
+            </div>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
