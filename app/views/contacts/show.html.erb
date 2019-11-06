@@ -46,9 +46,23 @@
           <div class="col-md-auto">
           </div>
           <div class="col col-lg-3">
-            <%= link_to "Edit", edit_contact_path(@contact) %>
-            <%= link_to "Delete", @contact, :method => 'delete', :data => { :confirm => "Are you sure?" } %>
-            <%= link_to "x", contacts_path %>
+            <div class="row">
+              <div class="p-3">
+                <%= link_to edit_contact_path(@contact) do %>
+                  <i class="fas fa-edit" title="Edit"></i>
+                <% end %>
+              </div>
+              <div class="p-3">
+                <%= link_to @contact, :method => "delete", :data => { :confirm => "Are you sure?" } do %>
+                  <i class="fas fa-trash-alt" title="Delete"></i>
+                <% end %>
+              </div>
+              <div class="p-3">
+                <%= link_to contacts_path do %>
+                  <i class="fas fa-address-book" title="Contacts List"></i>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
         <p class="p-2"><strong>Contact Details</strong></p>

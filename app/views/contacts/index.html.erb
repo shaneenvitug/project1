@@ -73,7 +73,16 @@
       <div class="col-md-9">
         <div class="panel panel-default">
           <table class="table">
-            <a href="/contacts/new"><i class="fas fa-user-plus"></i></a>
+            <div class="row mt-4">
+              <div class="col">
+                <h3><strong class="p-2">Contacts List</strong></h3>
+              </div>
+              <div class="col-md-auto">
+              </div>
+              <div class="col col-lg-2">
+                <a href="/contacts/new"><i class="fas fa-user-plus p-4" title="Add new contact"></i></a>
+              </div>
+            </div>
             <div class="container">
               <% if flash[:success].present? %>
                 <p class="alert alert-success p-2 text-center"><%= flash[:success] %></p>
@@ -101,9 +110,13 @@
               </td>
               <td width="100" class="middle">
                 <div>
-                  <!-- change to an icon later when font awesome works <i class="glyphicon glyphicon-edit"></i> <i class="glyphicon glyphicon-remove"></i> -->
-                  <%= link_to "Edit", :class => "btn btn-info active" %>
-                  <%= button_to "Delete", :class => "btn btn-danger", :data => { :confirm => "Are you sure?"} %>
+                  <%= link_to edit_contact_path(contact) do %>
+                    <i class="fas fa-edit" title="Edit"></i>
+                  <% end %>
+                  <%= link_to @contact, :method => "delete", :data => { :confirm => "Are you sure?" } do %>
+                    <i class="fas fa-trash-alt" title="Delete"></i>
+                  <% end %>
+
                 </div>
               </td>
             </tr>
