@@ -72,24 +72,23 @@
       <! -- Contacts List -->
       <div class="col-md-9">
         <div class="panel panel-default">
-  `      <table class="table">
-          <!-- add/change plus/add icon to create a contact when font awesome works <i class="glyphicon glyphicon-plus"></i>-->
-          <%= link_to "Add Contact", new_contact_path, :class => 'btn btn-info' %>
-          <div class="container">
-            <% if flash[:success].present? %>
-              <p class="alert alert-success p-2 text-center"><%= flash[:success] %></p>
-            <% elsif flash[:notice].present? %>
-              <p class="alert alert-info p-2 text-center"><%= flash[:notice] %></p>
-            <% end %>
-          </div>
+          <table class="table">
+            <a href="/contacts/new"><i class="fas fa-user-plus"></i></a>
+            <div class="container">
+              <% if flash[:success].present? %>
+                <p class="alert alert-success p-2 text-center"><%= flash[:success] %></p>
+              <% elsif flash[:notice].present? %>
+                <p class="alert alert-info p-2 text-center"><%= flash[:notice] %></p>
+              <% end %>
+            </div>
           <% @contacts.each do |contact| %>
             <tr>
               <td class="middle">
                 <div class="media">
                   <div class="media-left">
-                    <a href="#">
-                      <img src="https://www.fillmurray.com/100/100" alt="">
-                    </a>
+                    <% if contact.photo.nil? %>
+                      <%= image_tag "no_pic.jpg", :width => "100", :height => "100" %>
+                    <% end %>
                   </div>
                   <div class="media-body">
                     <h4 class="media-heading"><%= link_to contact.name, contact %></h4>
