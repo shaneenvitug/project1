@@ -18,7 +18,6 @@ class ContactsController < ApplicationController
     else
       render :new
     end
-    @contact.groups = Group.find(@params[group_ids]) if @params[group_ids]
   end
 
   def edit
@@ -30,11 +29,11 @@ class ContactsController < ApplicationController
     contact = Contact.find params[:id]
     contact.update contact_params
     redirect_to contact
-    @contact.groups = Group.find(@params[group_ids]) if @params[group_ids]
   end
 
   def show
     @contact = Contact.find params[:id]
+    @contacts = Contact.all
     @groups = Group.all
   end
 
@@ -46,6 +45,6 @@ class ContactsController < ApplicationController
 
   private
   def contact_params
-    params.require(:contact).permit(:name, :email, :phone, :address, :company, :photo)
+    params.require(:contact).permit(:name, :email, :phone, :address, :company, :photo, :group_ids)
   end
 end

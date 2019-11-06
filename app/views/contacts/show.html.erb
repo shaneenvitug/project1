@@ -94,13 +94,25 @@
               <%= @contact.address if @contact.address.present?%>
             </div>
           </div>
-          <div class="row">
+          <div class="row mb-4">
             <div class="col-1">
               <i class="fas fa-building"></i>
             </div>
             <div class="col-11">
               <%= @contact.company if @contact.company.present?%>
             </div>
+          </div>
+          <div class="row">
+            <% if @contact.groups.name.present? %>
+            <div class="col-1">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="col-11">
+              <% @contact.groups.each do |group| %>
+                <%= link_to group.name, group %>
+              <% end %>
+            </div>
+            <% end %>
           </div>
         </div>
       </div>
