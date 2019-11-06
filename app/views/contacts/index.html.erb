@@ -109,14 +109,17 @@
                 </div>
               </td>
               <td width="100" class="middle">
-                <div>
-                  <%= link_to edit_contact_path(contact) do %>
-                    <i class="fas fa-edit" title="Edit"></i>
-                  <% end %>
-                  <%= link_to @contact, :method => "delete", :data => { :confirm => "Are you sure?" } do %>
-                    <i class="fas fa-trash-alt" title="Delete"></i>
-                  <% end %>
-
+                <div class="row">
+                  <div class="edit p-2">
+                    <%= link_to edit_contact_path(contact) do %>
+                      <i class="fas fa-edit" title="Edit"></i>
+                    <% end %>
+                  </div>
+                  <div class="delete p-2">
+                    <%= link_to @contact, :method => "delete", :data => { :confirm => "Are you sure?" } do %>
+                      <i class="fas fa-trash-alt" title="Delete"></i>
+                    <% end %>
+                  </div>
                 </div>
               </td>
             </tr>
