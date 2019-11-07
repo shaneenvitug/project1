@@ -1,12 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:500&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
 * {
   margin: 0px;
   padding: 0px;
 }
 
-a {
+.navbar-brand {
   font-family: 'M PLUS Rounded 1c', sans-serif;
   color: black;
 }
@@ -79,4 +79,79 @@ div.top-heading {
 
 ul.pagination {
   margin: 0 auto;
+}
+
+.dropdown-menu.show {
+  min-width: 10rem;
+  background-color: #47BBBC;
+}
+
+.dropdown-toggle, .dropdown-item {
+  font-family: Georgia, sans-serif;
+  font-size: 1.2em;
+  color: white;
+}
+
+.dropdown-item {
+padding-left: 3rem;
+}
+
+i {
+  color: #47BBBC;
+  font-size: 1.2em;
+}
+
+i:hover {
+  color: #467c7d;
+  font-size : 1.4em;
+}
+
+a.list-group-item {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.1em;
+  padding-left: 2em;
+  color: black;
+}
+
+a.list-group-item:hover {
+  text-decoration: none;
+  color: black;
+  text-decoration-line: overline underline;
+  text-decoration-color: #FFC49D;
+  font-size: 1.3em;
+}
+
+h4 a {
+  color: black;
+  font-size: 1.3em;
+  font-family: 'Rubik', sans-serif;
+}
+
+h4 a:hover {
+  text-decoration: none;
+  color: black;
+  text-decoration-line: overline underline;
+  text-decoration-color: #FFC49D;
+  font-size: 1.5em;
+}
+
+h2, h3 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 2.5em;
+  text-decoration-line: underline;
+  text-decoration-color: #FFC49D;
+}
+
+h4 {
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.3em;
+}
+
+p {
+  font-family: 'Rubik', sans-serif;
+  font-size: .8em;
+}
+
+label {
+  font-family: 'Rubik', sans-serif;
 }
