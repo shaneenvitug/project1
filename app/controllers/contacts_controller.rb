@@ -22,7 +22,7 @@ class ContactsController < ApplicationController
 
     if @contact.save
       flash[:success] = "Successfully created new contact"
-      redirect_to contact_path(@contact)
+      redirect_to contacts_path
     else
       render :new
     end

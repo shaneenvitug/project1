@@ -61,3 +61,10 @@ div.top-heading {
 .navbar-light .navbar-nav .dropdown-menu {
   position: absolute;
 }
+
+.img-circle {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  border: 1px, solid, gray;
+}
