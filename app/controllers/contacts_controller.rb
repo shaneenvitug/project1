@@ -1,7 +1,12 @@
 class ContactsController < ApplicationController
   def index
-    @contacts = Contact.all.paginate(:page => params[:page], :per_page => 6)
-    @groups = Group.all
+    if @current_user.present?
+      @contacts = @current_user.contacts.paginate(:page => params[:page], :per_page => 6)
+      @groups = @current_user.groups.uniq
+    else
+      @contacts = Contact.none
+      @groups = Group.none
+    end
     # @favourite = Favourite.find params [:id]
   end
 
