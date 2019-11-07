@@ -71,7 +71,7 @@
           Favourites
           < @favourite.contacts.each do |contact| %>
             <li class="list-inline-item">
-              <%= link_to contact.name, contact %>
+              < link_to contact.name, contact %>
             </li>
           < end %>
         </div> -->
@@ -102,8 +102,8 @@
               <td class="middle">
                 <div class="media">
                   <div class="media-left">
-                    <% if contact.photo.nil? %>
-                      <%= image_tag "no_pic.jpg", :width => "100", :height => "100" %>
+                    <% if contact.photo.present? %>
+                      <%= cl_image_tag(contact.photo, :class => 'img-circle') %>
                     <% end %>
                   </div>
                   <div class="media-body">

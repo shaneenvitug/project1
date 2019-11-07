@@ -11,16 +11,18 @@ class ContactsController < ApplicationController
   end
 
   def create
-    contact = Contact.create contact_params
+    @groups = Group.all
+    @contact = Contact.new contact_params
+    @current_user.contacts << @contact
+
     if params[:file].present?
       req = Cloudinary::Uploader.upload(params[:file])
-      contact.photo = req["public_id"]
-      contact.save
+      @contact.photo = req["public_id"]
     end
-    @current_user.contacts << contact
-    if contact.save
+
+    if @contact.save
       flash[:success] = "Successfully created new contact"
-      redirect_to contacts_path
+      redirect_to contact_path(@contact)
     else
       render :new
     end

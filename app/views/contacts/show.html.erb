@@ -40,7 +40,9 @@
       <div class="contacts-show">
         <div class="row top-heading">
           <div class="col">
-             <!-- < cl_image_tag(@contact.photo), :class => 'img-circle' if @contact.photo.present?%> %> -->
+            <% if @contact.photo.present? %>
+              <%= cl_image_tag(@contact.photo, :class => 'img-circle') %>
+            <% end %>
             <h2><%= @contact.name %></h2>
           </div>
           <div class="col-md-auto">
