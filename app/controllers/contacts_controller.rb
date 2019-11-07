@@ -39,8 +39,14 @@ class ContactsController < ApplicationController
       req = Cloudinary::Uploader.upload(params[:file])
       contact.photo = req["public_id"]
     end
+    if
       contact.update_attributes(contact_params)
       contact.save
+      flash[:success] = "Successfully updated contact"
+      redirect_to contacts_path
+    else
+      render :edit
+    end
   end
 
   def show
