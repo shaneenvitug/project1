@@ -15,7 +15,7 @@
 
 
 <div class="container">
-  <div class="row">
+  <div class="row mt-4">
     <! -- Groups and Favourites -->
     <div class="col-md-3">
       <div class="list-group shadow-sm bg-white rounded">
@@ -96,7 +96,7 @@
                 <% end %>
               </div>
               <div class="delete p-2">
-                <%= link_to @contact, :method => "delete", :data => { :confirm => "Are you sure?" } do %>
+                <%= link_to contact, :method => "delete", :data => { :confirm => "Are you sure?" } do %>
                   <i class="fas fa-trash-alt" title="Delete"></i>
                 <% end %>
               </div>
