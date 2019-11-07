@@ -20,7 +20,7 @@
     <div class="row">
       <! -- Groups and Favourites -->
       <div class="col-md-3">
-        <div class="list-group">
+        <div class="list-group shadow-sm bg-white rounded">
           <!-- add a plus/add icon to create a group -->
           <div class="btn-group dropright">
             <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -40,6 +40,11 @@
       <div class="col-md-9">
         <div class="title text-center col-md p-3">
           <strong>New Contact</strong>
+        </div>
+        <div class="container">
+          <% if flash[:error].present? %>
+            <p class="alert alert-danger p-2 text-center"><%= flash[:error] %></p>
+          <% end %>
         </div>
         <%= render :partial => 'form' %>
       </div>

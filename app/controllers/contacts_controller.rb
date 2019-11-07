@@ -24,6 +24,7 @@ class ContactsController < ApplicationController
       flash[:success] = "Successfully created new contact"
       redirect_to contacts_path
     else
+      flash[:error] = "Failed to create new contact"
       render :new
     end
   end
