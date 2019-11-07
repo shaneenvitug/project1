@@ -69,6 +69,15 @@ div.top-heading {
   border: 1px, solid, gray;
 }
 
+.page-link {
+  color: black;
+}
+
+.page-item.active .page-link {
+  background-color: #128496;
+  border-color: #128496;
+}
+
 ul.pagination {
   margin: 0 auto;
 }
