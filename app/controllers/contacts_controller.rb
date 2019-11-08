@@ -12,11 +12,11 @@ class ContactsController < ApplicationController
 
   def new
     @contact = Contact.new
-    @groups = Group.all
+    @groups = @current_user.groups.uniq
   end
 
   def create
-    @groups = Group.all
+    @groups = @current_user.groups.uniq
     @contact = Contact.new contact_params
     @current_user.contacts << @contact
 
@@ -36,7 +36,7 @@ class ContactsController < ApplicationController
 
   def edit
     @contact = Contact.find params[:id]
-    @groups = Group.all
+    @groups = @current_user.groups.uniq
   end
 
   def update
@@ -57,8 +57,8 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find params[:id]
-    @contacts = Contact.all
-    @groups = Group.all
+    @contacts = @current_user.contacts
+    @current_user.groups.uniq
   end
 
   def destroy

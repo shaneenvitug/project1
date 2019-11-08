@@ -32,8 +32,10 @@
             </div>
           </div>
         </div>
-        <% @groups.each do |group| %>
-          <%= link_to group.name, group, :class => "list-group-item" %>
+        <% if @current_user.groups.uniq.present? %>
+          <% @groups.each do |group| %>
+            <%= link_to group.name, group, :class => "list-group-item" %>
+          <% end %>
         <% end %>
       </div>
         <!-- to add favourites later -->

@@ -47,4 +47,4 @@ g2.contacts << c8 << c9 << c10 << c11 << c12 << c13 << c14 << c15
 g4.contacts << c3 << c16 << c17 << c18
 g3.contacts << c19 << c20
 
-# Favourite.contacts << c1
+u1.groups << g1 << g2 << g3 << g4

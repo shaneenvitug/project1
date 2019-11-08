@@ -1,12 +1,13 @@
 class GroupsController < ApplicationController
   def new
     @group = Group.new
-    @groups = Group.all
+    @groups = @current_user.groups.uniq
   end
 
   def create
     group = Group.create group_params
     if group.save
+      @current_user.groups << group
       flash[:success] = "Successfully created new group"
       redirect_to contacts_path
     else
@@ -16,7 +17,7 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find params[:id]
-    @groups = Group.all
+    @groups = @current_user.groups.uniq
   end
 
   def update
@@ -27,7 +28,7 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find params[:id]
-    @groups = Group.all
+    @groups = @current_user.groups.uniq
   end
 
   def destroy
