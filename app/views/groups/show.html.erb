@@ -29,11 +29,9 @@
             <%= link_to "Add new contact", new_contact_path, :class => "dropdown-item" %>
           </div>
         </div>
-        <% if @current_user.groups.uniq.present? %>
           <% @groups.each do |group| %>
             <%= link_to group.name, group, :class => "list-group-item" %>
           <% end %>
-        <% end %>
       </div>
       <!-- to add favourites later -->
     </div>

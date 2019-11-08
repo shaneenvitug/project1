@@ -58,7 +58,7 @@ class ContactsController < ApplicationController
   def show
     @contact = Contact.find params[:id]
     @contacts = @current_user.contacts
-    @current_user.groups.uniq
+    @groups = @current_user.groups.uniq
   end
 
   def destroy
